@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weatherApp/HomeScreen.dart';
+import 'package:provider/provider.dart';
+import 'package:weatherApp/providers/weather_API.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,17 +10,28 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Weather",
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/clear.png'),
-                fit: BoxFit.cover),
-          ),
-          child: HomeScreen()),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: WeatherApi(),
+        ),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+          fontFamily: 'Lato',
+        ),
+        debugShowCheckedModeBanner: false,
+        title: "Weather",
+        home: Consumer<WeatherApi>(
+          builder: (ctx, data, _) => Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/${data.weather}.png'),
+                    fit: BoxFit.cover),
+              ),
+              child: HomeScreen()),
+        ),
+      ),
     );
   }
 }
