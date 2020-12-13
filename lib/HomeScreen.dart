@@ -1,25 +1,50 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
+  int temp = 0;
+  String location = 'Delhi';
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
-    return Stack(
-      children: [
-        Positioned(
-          bottom: height / 2.4,
-          child: Image.network('https://i.ibb.co/Y2CNM8V/new-york.jpg'),
-          height: height,
-        ),
-        Positioned(
-            bottom: 0,
-            child: Container(
-              height: height / 2.4,
-              width: width,
-              color: Color(0xFF2D2C35),
-            ))
-      ],
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Column(
+            children: [
+              Center(
+                child: Text(temp.toString() + ' °C',
+                    style: TextStyle(color: Colors.white, fontSize: 60.0)),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                location,
+                style: TextStyle(color: Colors.white, fontSize: 40),
+              ),
+            ],
+          ),
+          Column(
+            children: <Widget>[
+              Container(
+                width: 300,
+                child: TextField(
+                  style: TextStyle(color: Colors.white, fontSize: 17),
+                  decoration: InputDecoration(
+                      hintText: "Seach another location...",
+                      hintStyle: TextStyle(color: Colors.white),
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                      )),
+                ),
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }
