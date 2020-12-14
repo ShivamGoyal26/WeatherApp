@@ -7,6 +7,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final data = Provider.of<WeatherApi>(context);
     return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          actions: [
+            GestureDetector(
+              onTap: () {},
+              child: Icon(Icons.location_city, size: 36.0),
+            ),
+          ],
+        ),
         backgroundColor: Colors.black54,
         body: data.isLoading
             ? Center(
