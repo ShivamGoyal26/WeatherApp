@@ -7,9 +7,9 @@ class LocatorFinder with ChangeNotifier {
 
   var addresses;
 
-  String addressOne;
+  String addressOne = "N/A";
 
-  String addressTwo;
+  String addressTwo = "N/A";
 
   getCurrentLocation() async {
     Position position = await Geolocator.getCurrentPosition(
@@ -20,10 +20,14 @@ class LocatorFinder with ChangeNotifier {
   }
 
   convertGeoCodeToAddress(Coordinates coordinates) async {
-    addresses = await Geocoder.local.findAddressesFromCoordinates(coordinates);
-    addressOne = addresses.first.featureName;
-    addressTwo = addresses.first.addressLine;
-    print(addressOne);
-    print(addressTwo);
+    try {
+      addresses =
+          await Geocoder.local.findAddressesFromCoordinates(coordinates);
+      addressOne = addresses.first.featureName;
+      addressTwo = addresses.first.addressLine;
+      notifyListeners();
+    } catch (error) {
+      throw (error);
+    }
   }
 }

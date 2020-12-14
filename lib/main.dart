@@ -3,6 +3,7 @@ import 'package:weatherApp/HomeScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:weatherApp/providers/locator.dart';
 import 'package:weatherApp/providers/weather_API.dart';
+import 'package:weatherApp/screens/get_location_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(
           fontFamily: 'Lato',
-          canvasColor: Colors.black54,
+          // canvasColor: Colors.black54,
+          primaryColor: Colors.black,
         ),
         debugShowCheckedModeBanner: false,
         title: "Weather",
@@ -36,6 +38,9 @@ class MyApp extends StatelessWidget {
               ),
               child: HomeScreen()),
         ),
+        routes: {
+          GetLocationScreen.routeName: (ctx) => GetLocationScreen(),
+        },
       ),
     );
   }
