@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:geocoder/geocoder.dart';
 import 'package:provider/provider.dart';
 import 'package:weatherApp/providers/locator.dart';
+import 'package:weatherApp/widgets/get_location_details.dart';
+import 'package:weatherApp/widgets/user_drawer.dart';
 
 class GetLocationScreen extends StatefulWidget {
   static const routeName = '/getLocationScreen';
@@ -19,10 +21,11 @@ class _GetLocationScreenState extends State<GetLocationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    LocatorFinder data = Provider.of<LocatorFinder>(context);
+    LocatorFinder data = Provider.of<LocatorFinder>(context, listen: false);
     return Scaffold(
+      drawer: UserDrawer(),
       appBar: AppBar(
-        backgroundColor: Colors.black54,
+        backgroundColor: Colors.black,
         title: Text("Find Your Place"),
       ),
       body: Column(
@@ -97,23 +100,12 @@ class _GetLocationScreenState extends State<GetLocationScreen> {
                         side: BorderSide(color: Theme.of(context).primaryColor),
                       ),
                     ),
-                    Column(
-                      children: [
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Text(
-                          "Your Results...",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        Text(data.addressTwo.toString()),
-                      ],
-                    )
                   ],
                 ),
               ),
             ),
           ),
+          GetLocationDetail(),
         ],
       ),
     );

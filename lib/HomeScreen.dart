@@ -14,22 +14,35 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           actions: [
-            GestureDetector(
-              onTap: () {
-                Provider.of<LocatorFinder>(context, listen: false)
-                    .getCurrentLocation();
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(Icons.location_city, size: 36.0),
-              ),
+            Consumer<LocatorFinder>(
+              builder: (ctx, data, _) => data.currentLocationspiner
+                  ? Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation(Colors.white),
+                        ),
+                      ),
+                    )
+                  : GestureDetector(
+                      onTap: () {
+                        Provider.of<LocatorFinder>(context, listen: false)
+                            .getCurrentLocation();
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.location_city, size: 36.0),
+                      ),
+                    ),
             ),
           ],
         ),
         backgroundColor: Colors.black54,
         body: data.isLoading
             ? Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation(Colors.white),
+                ),
               )
             : Column(
                 crossAxisAlignment: CrossAxisAlignment.center,

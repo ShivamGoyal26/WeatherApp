@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(
           fontFamily: 'Lato',
-          // canvasColor: Colors.black54,
           primaryColor: Colors.black,
         ),
         debugShowCheckedModeBanner: false,
