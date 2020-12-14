@@ -1,19 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weatherApp/providers/weather_API.dart';
+import './providers/locator.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<WeatherApi>(context);
     return Scaffold(
+        drawer: Drawer(
+          child: Container(
+            color: Colors.transparent,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 50,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.location_pin,
+                        color: Colors.white,
+                      ),
+                      FlatButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Get Location",
+                            style: TextStyle(color: Colors.white, fontSize: 22),
+                          ))
+                    ],
+                  ),
+                )
+                // RaisedButton.icon(
+                //     icon: Icon(
+                //       Icons.location_pin,
+                //       color: Colors.white,
+                //     ),
+                //     color: Colors.transparent,
+                //     onPressed: () {},
+                //     label: Text(
+                //       "Get Location",
+                //       style: TextStyle(color: Colors.white, fontSize: 25),
+                //     ))
+              ],
+            ),
+          ),
+        ),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           actions: [
             GestureDetector(
-              onTap: () {},
-              child: Icon(Icons.location_city, size: 36.0),
+              onTap: () {
+                Provider.of<LocatorFinder>(context, listen: false)
+                    .getCurrentLocation();
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(Icons.location_city, size: 36.0),
+              ),
             ),
           ],
         ),

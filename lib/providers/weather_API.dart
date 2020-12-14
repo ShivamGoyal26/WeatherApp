@@ -38,14 +38,9 @@ class WeatherApi with ChangeNotifier {
       notifyListeners();
       throw (error);
     }
-    var searchResult = await http.get(searchApiUrl + input);
-    var result = json.decode(searchResult.body)[0];
-    location = result['title'];
-    fetchLocation(result['woeid'].toString());
-    notifyListeners();
   }
 
-  void fetchLocation(String woeid) async {
+  fetchLocation(String woeid) async {
     var locationResult = await http.get(locationApiUrl + woeid.toString());
     var result = json.decode(locationResult.body);
     var consolidatedWeather = result['consolidated_weather'];

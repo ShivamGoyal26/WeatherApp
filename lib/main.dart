@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weatherApp/HomeScreen.dart';
 import 'package:provider/provider.dart';
+import 'package:weatherApp/providers/locator.dart';
 import 'package:weatherApp/providers/weather_API.dart';
 
 void main() {
@@ -15,10 +16,14 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: WeatherApi(),
         ),
+        ChangeNotifierProvider.value(
+          value: LocatorFinder(),
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData(
           fontFamily: 'Lato',
+          canvasColor: Colors.black54,
         ),
         debugShowCheckedModeBanner: false,
         title: "Weather",
