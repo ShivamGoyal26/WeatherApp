@@ -32,8 +32,9 @@ class MyApp extends StatelessWidget {
           builder: (ctx, data, _) => Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/${data.weather}.png'),
-                    fit: BoxFit.cover),
+                  image: AssetImage('assets/images/${data.weather}.png'),
+                  fit: BoxFit.cover,
+                ),
               ),
               child: HomeScreen()),
         ),
