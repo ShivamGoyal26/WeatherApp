@@ -4,15 +4,21 @@ A new Flutter project.
 
 ## Getting Started
 
-Here there, So this is the weather app which i have made again in the flutter. 
-Here i tried to made the UI as simple as Possible...
+Here there, So this is the weather app which i have made again in the flutter. <br>
+Here i tried to make the UI as simple as Possible... <br>
 
 ## Features
 
-Here you can basically query the weather and temperature of metro cities.
-This app will show you the weather forecast of 7 Days ahead.
-Here you can also get the current location of yourself by taping at the very top-right corner.
-Here you can find the precise information such as country, country-code, postal-code, etc about any area, town, city, etc by just entering the coordinates of that! 
+Here you can basically query the weather and temperature of metro cities. <br>
+This app will show you the weather forecast of 7 Days ahead. <br>
+Here you can also get the current location of yourself by taping at the very top-right corner. <br>
+Here you can find the precise information such as <br>
+country, <br>
+country-code, <br>
+postal-code, <br>
+Area,<br>
+etc about any area, town, city, etc by just entering the coordinates of that! <br>
+& THE AWESOME THING ABOUT THAT IT WILL GIVE YOU THE 100 PERCENT CORRECT INFORMATION :) <br>
 
 
 
@@ -20,12 +26,12 @@ Here you can find the precise information such as country, country-code, postal-
 
 ## What i have used:
 
-Here i have the weather API know as metaweather
-https://www.metaweather.com/api/
-I have used the state-management concept in this project (PROVIDER PACKAGE)
-Here i am using the main two flutter package which is:
-1. geolocator
-2. geocoder
+Here i have used the weather API know as meta weather<br>
+https://www.metaweather.com/api/ <br>
+I have used the state-management concept in this project (PROVIDER PACKAGE) <br>
+Here i am using the main two flutter package which is: <br>
+1. geolocator <br>
+2. geocoder <br>
 
 
 Thank you!
